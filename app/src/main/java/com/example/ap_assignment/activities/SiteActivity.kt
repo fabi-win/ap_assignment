@@ -8,10 +8,12 @@ import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import org.jetbrains.anko.toast
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
     var site = SiteModel()
+    val sites = ArrayList<SiteModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +24,10 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site.title = siteTitle.text.toString()
             site.descripton = siteDescription.text.toString()
             if(site.title.isNotEmpty()){
-                info("addButtonPressed: $site")
+                sites.add(site.copy())
+            }
+            else{
+                toast("Please enter a title")
             }
         }
     }
