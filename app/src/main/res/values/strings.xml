@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ap_assignment</string>
+    <string name="button_addSite">Add Placemark</string>
 </resources>
