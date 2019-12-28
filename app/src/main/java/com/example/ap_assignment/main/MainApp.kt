@@ -12,5 +12,14 @@ class MainApp : Application(), AnkoLogger {
     override fun onCreate() {
         super.onCreate()
         info("Placemark started")
+        sites.add(SiteModel("one", "dief a bcvxvcbyx f"))
+        sites.add(SiteModel("two", "dfe a hjliuli f"))
+        sites.add(SiteModel("dree", "khlilil a dafe f"))
+        sites.add(SiteModel("one", "dief a bcvxvcbyx f"))
+        sites.add(SiteModel("two", "dfe a hjliuli f"))
+        sites.add(SiteModel("dree", "khlilil a dafe f"))
+        sites.add(SiteModel("one", "dief a bcvxvcbyx f"))
+        sites.add(SiteModel("two", "dfe a hjliuli f"))
+        sites.add(SiteModel("dree", "khlilil a dafe f"))
     }
 }
