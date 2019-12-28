@@ -1,8 +1,9 @@
-package com.example.ap_assignment
+package com.example.ap_assignment.activities
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ap_assignment.R
 import kotlinx.android.synthetic.main.activity_site.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info

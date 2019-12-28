@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SiteActivity">
+    tools:context=".activities.SiteActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -48,8 +48,22 @@
                     android:autofillHints=""
                     android:hint="@string/hint_SiteTitle"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="50"
                     android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/siteDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:layout_margin="8dp"
+                    android:autofillHints=""
+                    android:hint="@string/hint_SiteDescription"
+                    android:inputType="textMultiLine"
+                    android:maxLength="120"
+                    android:maxLines="2"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
