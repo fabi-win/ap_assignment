@@ -80,11 +80,22 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
 
-                <ImageView
+                <!-- <ImageView
                     android:id="@+id/siteImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher"/>
+                    app:srcCompat="@mipmap/ic_launcher"/> -->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                    <LinearLayout
+                        android:id="@+id/gallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" />
+                </HorizontalScrollView>
 
                 <Button
                     android:id="@+id/btnAdd"
