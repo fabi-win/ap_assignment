@@ -1,7 +1,10 @@
 package com.example.ap_assignment.models
 
-import java.io.FileDescriptor
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class SiteModel(var title: String ="",
-                     var descripton: String ="",
-                     var image: String ="")
+@Parcelize
+data class SiteModel(var id: Long = 0,
+                     var title: String ="",
+                     var description: String ="",
+                     var image: String =""): Parcelable

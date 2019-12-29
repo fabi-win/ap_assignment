@@ -1,17 +1,20 @@
 package com.example.ap_assignment.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap_assignment.R
 import com.example.ap_assignment.main.MainApp
+import com.example.ap_assignment.models.SiteModel
 
 
 import kotlinx.android.synthetic.main.activity_site_list.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 
-class SiteListActivity: AppCompatActivity() {
+class SiteListActivity: AppCompatActivity(), SiteListener {
 
     lateinit var app: MainApp
 
@@ -19,15 +22,13 @@ class SiteListActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_list)
         app = application as MainApp
-
         toolbar.title = title
         setSupportActionBar(toolbar)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = SiteAdapter(app.sites)
+        recyclerView.adapter = SiteAdapter(app.sites.findAll(), this)
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -40,6 +41,14 @@ class SiteListActivity: AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onSiteClick(site: SiteModel) {
+        startActivityForResult(intentFor<SiteActivity>().putExtra("site_edit", site), 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        recyclerView.adapter?.notifyDataSetChanged()
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
 
 }

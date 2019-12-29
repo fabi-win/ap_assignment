@@ -61,9 +61,9 @@
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:hint="@string/hint_SiteDescription"
-                    android:inputType="textMultiLine"
-                    android:maxLength="120"
-                    android:maxLines="2"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
