@@ -1,10 +1,7 @@
 package com.example.ap_assignment.activities
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +12,7 @@ import com.example.ap_assignment.models.SiteModel
 
 import kotlinx.android.synthetic.main.activity_site_list.*
 import kotlinx.android.synthetic.main.card_list.view.*
+import org.jetbrains.anko.startActivityForResult
 
 class SiteListActivity: AppCompatActivity() {
 
@@ -37,6 +35,14 @@ class SiteListActivity: AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.item_add -> startActivityForResult<SiteActivity>(0)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     class SiteAdapter constructor(private var sites: List<SiteModel>) :
         RecyclerView.Adapter<SiteAdapter.MainHolder>() {

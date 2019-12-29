@@ -21,11 +21,13 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_site)
         app = application as MainApp
 
-        btnAdd.setOnClickListener(){
+        btnAdd.setOnClickListener() {
             site.title = siteTitle.text.toString()
             site.descripton = siteDescription.text.toString()
-            if(site.title.isNotEmpty()){
+            if (site.title.isNotEmpty()) {
                 app.sites.add(site.copy())
+                setResult(AppCompatActivity.RESULT_OK)
+                finish()
             }
             else{
                 toast("Please enter a title")
