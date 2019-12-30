@@ -17,7 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 try{
                         Thread.sleep(5000)
 
-                    val intent = Intent(baseContext, SiteListActivity::class.java)
+                    val intent = Intent(baseContext, LoginActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception){
                     e.printStackTrace()
