@@ -6,8 +6,11 @@
     <string name="enter_site_title">Enter a Site Title</string>
     <string name="menu_addSite">Add</string>
     <string name="menu_cancelSite">Cancel</string>
-    <string name="button_addImage">Add Image</string>
+    <string name="button_addImage">Add Image 1</string>
+    <string name="button_addImage2">Add Image 2</string>
     <string name="select_site_image">Select site image</string>
     <string name="save_site"> Save Site </string>
     <string name="change_site_image">Change site image</string>
+    <string name="change_site_image2">Change site image 2</string>
+    <string name="menu_deleteSite">Delete</string>
 </resources>
