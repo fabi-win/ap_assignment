@@ -26,8 +26,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
     var site = SiteModel()
     lateinit var app:MainApp
-    val IMAGE_REQUEST_1 = 1
-    val IMAGE_REQUEST_2 = 1
+    var IMAGE_REQUEST_1 = 1
+    var IMAGE_REQUEST_2 = 2
 
     var edit = false
 
@@ -80,6 +80,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             finish()
         }
 
+
         chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST_1)
         }
@@ -112,13 +113,15 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             IMAGE_REQUEST_1 -> {
+                info("image request 1")
                 if (data != null) {
                         site.image1 = data.getData().toString()
                         siteImage.setImageBitmap(readImage(this, resultCode, data))
                         chooseImage.setText(R.string.change_site_image)
                     }
             }
-            IMAGE_REQUEST_2-> {
+            IMAGE_REQUEST_2 -> {
+                info("image request 2")
                 if (data != null) {
 
                     site.image2 = data.getData().toString()
