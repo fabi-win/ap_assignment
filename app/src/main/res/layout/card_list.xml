@@ -35,5 +35,15 @@
             android:layout_below="@id/siteTitle"
             android:layout_toEndOf="@+id/imageIcon" />
 
+        <CheckBox
+            android:id="@+id/visited"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="0dp"
+            android:text="Visited" />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

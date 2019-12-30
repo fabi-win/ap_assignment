@@ -30,6 +30,7 @@ class SiteMemStore: SiteStore, AnkoLogger {
             foundSite.description = site.description
             foundSite.image1 = site.image1
             foundSite.image2 = site.image2
+            foundSite.visited = site.visited
             logAll()
         }
     }

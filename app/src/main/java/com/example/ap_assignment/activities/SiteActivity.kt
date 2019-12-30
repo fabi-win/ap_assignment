@@ -4,6 +4,7 @@ package com.example.ap_assignment.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.CheckBox
 import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -17,6 +18,7 @@ import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
+import kotlinx.android.synthetic.main.activity_site.view.*
 import kotlinx.android.synthetic.main.card_list.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -50,6 +52,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             siteTitle.setText(site.title)
             siteDescription.setText(site.description)
 
+            siteVisited.setChecked(site.visited)
+
             siteImage.setImageBitmap(readImageFromPath(this, site.image1))
             if(site.image1 != null){
                 chooseImage.setText(R.string.change_site_image)
@@ -66,6 +70,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         btnAdd.setOnClickListener() {
             site.title = siteTitle.text.toString()
             site.description = siteDescription.text.toString()
+            site.visited = siteVisited.isChecked
+
            if (site.title.isEmpty()) {
                 toast(R.string.enter_site_title)
             } else {
