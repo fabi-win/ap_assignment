@@ -13,9 +13,7 @@ import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.Site.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
@@ -87,6 +85,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         chooseImage2.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST_2)
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -103,6 +102,9 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_delete -> {
                 app.sites.delete(site)
                 finish()
+            }
+            R.id.item_logout ->{
+                startActivityForResult<LoginActivity>(0)
             }
         }
         return super.onOptionsItemSelected(item)

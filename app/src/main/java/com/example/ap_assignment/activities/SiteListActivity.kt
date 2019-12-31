@@ -37,10 +37,16 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.item_add -> startActivityForResult<SiteActivity>(0)
+            R.id.item_add -> {
+                startActivityForResult<SiteActivity>(0)
+            }
+            R.id.item_logout -> {
+                startActivityForResult<LoginActivity>(0)
+            }
         }
-        return super.onOptionsItemSelected(item)
-    }
+            return super.onOptionsItemSelected(item)
+        }
+
 
     override fun onSiteClick(site: SiteModel) {
         startActivityForResult(intentFor<SiteActivity>().putExtra("site_edit", site), 0)
