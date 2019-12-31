@@ -1,9 +1,10 @@
-package com.example.ap_assignment.models
+package com.example.ap_assignment.models.Site
 
 import android.content.Context
 import com.example.ap_assignment.helpers.exists
 import com.example.ap_assignment.helpers.read
 import com.example.ap_assignment.helpers.write
+import com.example.ap_assignment.models.SiteStore
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -58,12 +59,19 @@ class SiteJSONStore : SiteStore, AnkoLogger {
     }
 
     private fun serialize() {
-        val jsonString = gsonBuilder.toJson(sites, listType)
-        write(context, JSON_FILE, jsonString)
+        val jsonString = gsonBuilder.toJson(sites,
+            listType
+        )
+        write(context,
+            JSON_FILE, jsonString)
     }
 
     private fun deserialize() {
-        val jsonString = read(context, JSON_FILE)
-        sites = Gson().fromJson(jsonString, listType)
+        val jsonString = read(context,
+            JSON_FILE
+        )
+        sites = Gson().fromJson(jsonString,
+            listType
+        )
     }
 }

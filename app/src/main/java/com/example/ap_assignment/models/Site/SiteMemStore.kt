@@ -1,5 +1,6 @@
-package com.example.ap_assignment.models
+package com.example.ap_assignment.models.Site
 
+import com.example.ap_assignment.models.SiteStore
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 

@@ -1,4 +1,4 @@
-package com.example.ap_assignment.models
+package com.example.ap_assignment.models.Site
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -10,3 +10,4 @@ data class SiteModel(var id: Long = 0,
                      var description: String ="",
                      var image1: String ="",
                      var image2: String=""): Parcelable
+
