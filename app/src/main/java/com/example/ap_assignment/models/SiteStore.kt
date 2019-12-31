@@ -1,7 +1,5 @@
 package com.example.ap_assignment.models
 
-import com.example.ap_assignment.models.Site.SiteModel
-
 interface SiteStore {
     fun findAll(): List<SiteModel>
     fun create(site: SiteModel)

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap_assignment.R
 import com.example.ap_assignment.main.MainApp
-import com.example.ap_assignment.models.Site.SiteModel
+import com.example.ap_assignment.models.SiteModel
 
 
 import kotlinx.android.synthetic.main.activity_site_list.*

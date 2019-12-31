@@ -10,7 +10,7 @@ import com.example.ap_assignment.helpers.readImage
 import com.example.ap_assignment.helpers.readImageFromPath
 import com.example.ap_assignment.helpers.showImagePicker
 import com.example.ap_assignment.main.MainApp
-import com.example.ap_assignment.models.Site.SiteModel
+import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
 import org.jetbrains.anko.*

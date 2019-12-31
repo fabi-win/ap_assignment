@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ap_assignment.R
 import com.example.ap_assignment.helpers.readImageFromPath
-import com.example.ap_assignment.models.Site.SiteModel
+import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.card_list.view.*
 import kotlinx.android.synthetic.main.card_list.view.siteTitle
 import kotlinx.android.synthetic.main.card_list.view.visited

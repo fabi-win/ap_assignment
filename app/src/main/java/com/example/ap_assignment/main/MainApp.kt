@@ -1,7 +1,7 @@
 package com.example.ap_assignment.main
 
 import android.app.Application
-import com.example.ap_assignment.models.Site.SiteJSONStore
+import com.example.ap_assignment.models.SiteJSONStore
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 

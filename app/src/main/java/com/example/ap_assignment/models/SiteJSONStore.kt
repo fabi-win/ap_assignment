@@ -1,10 +1,9 @@
-package com.example.ap_assignment.models.Site
+package com.example.ap_assignment.models
 
 import android.content.Context
 import com.example.ap_assignment.helpers.exists
 import com.example.ap_assignment.helpers.read
 import com.example.ap_assignment.helpers.write
-import com.example.ap_assignment.models.SiteStore
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken

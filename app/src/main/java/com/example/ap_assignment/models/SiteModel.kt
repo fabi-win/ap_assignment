@@ -1,4 +1,4 @@
-package com.example.ap_assignment.models.Site
+package com.example.ap_assignment.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
