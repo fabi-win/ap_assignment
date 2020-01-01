@@ -1,4 +1,4 @@
-package com.example.ap_assignment.models
+package com.example.ap_assignment.models.user
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

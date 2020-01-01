@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.ap_assignment.helpers.exists
 import com.example.ap_assignment.helpers.read
 import com.example.ap_assignment.helpers.write
+import com.example.ap_assignment.models.user.UserModel
+import com.example.ap_assignment.models.user.UserStore
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -74,3 +76,4 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         )
     }
 }
+

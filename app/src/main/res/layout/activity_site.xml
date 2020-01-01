@@ -150,6 +150,15 @@
                     android:layout_height="wrap_content"
                     android:text="Visited" />
 
+                <EditText
+                    android:id="@+id/siteDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Date Visited:" />
+
+
+
             </LinearLayout>
         </ScrollView>
 

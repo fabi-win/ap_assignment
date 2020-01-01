@@ -1,6 +1,7 @@
 package com.example.ap_assignment.activities
 
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -14,6 +15,8 @@ import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
 import org.jetbrains.anko.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
@@ -46,12 +49,12 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             siteVisited.setChecked(site.visited)
 
             siteImage.setImageBitmap(readImageFromPath(this, site.image1))
-            if(site.image1 != null){
+            if (site.image1 != null) {
                 chooseImage.setText(R.string.change_site_image)
             }
 
             siteImage2.setImageBitmap(readImageFromPath(this, site.image2))
-            if(site.image2 != null){
+            if (site.image2 != null) {
                 chooseImage2.setText(R.string.change_site_image2)
             }
 
@@ -63,14 +66,14 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site.description = siteDescription.text.toString()
             site.visited = siteVisited.isChecked
 
-           if (site.title.isEmpty()) {
+            if (site.title.isEmpty()) {
                 toast(R.string.enter_site_title)
             } else {
                 if (edit) {
                     app.sites.update(site.copy())
                 } else {
                     app.sites.create(site.copy())
-             }
+                }
             }
             info("add Button Pressed: $siteTitle")
             setResult(AppCompatActivity.RESULT_OK)
@@ -86,7 +89,33 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, IMAGE_REQUEST_2)
         }
 
+        //date
+        var cal = Calendar.getInstance()
+
+        val dateSetListener =
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val myFormat = "dd.MM.yyyy" // mention the format you need
+                val sdf = SimpleDateFormat(myFormat, Locale.US)
+                val stringDate = sdf.toString()
+                siteDate.setText(stringDate)
+            }
+
+                siteDate.setOnClickListener {
+                    DatePickerDialog(
+                        this@SiteActivity, dateSetListener,
+                        cal.get(Calendar.YEAR),
+                        cal.get(Calendar.MONTH),
+                        cal.get(Calendar.DAY_OF_MONTH)
+                    ).show()
+                }
+                //end of date
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_site, menu)
