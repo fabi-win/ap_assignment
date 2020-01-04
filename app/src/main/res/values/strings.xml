@@ -12,10 +12,14 @@
     <string name="save_site"> Save Site </string>
     <string name="change_site_image">Change site image</string>
     <string name="change_site_image2">Change site image 2</string>
+    <string name="change_site_image3">Change site image 3</string>
+    <string name="change_site_image4">Change site image 4</string>
     <string name="menu_deleteSite">Delete</string>
     <string name="enter_email">Enter a E-Mail</string>
     <string name="enter_password">Enter a password</string>
     <string name="user_created">User created. Please log in!</string>
     <string name="no_email_found">This E-Mail was not found. Please Sign in.</string>
+    <string name="button_location">Set Location</string>
+    <string name="title_activity_map">Map</string>
 
 </resources>

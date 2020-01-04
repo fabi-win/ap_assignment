@@ -5,7 +5,9 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap_assignment.R
 import com.example.ap_assignment.helpers.readImage
 import com.example.ap_assignment.helpers.readImageFromPath
@@ -14,6 +16,7 @@ import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
+import kotlinx.android.synthetic.main.activity_site_list.*
 import org.jetbrains.anko.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,6 +27,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     lateinit var app:MainApp
     var IMAGE_REQUEST_1 = 1
     var IMAGE_REQUEST_2 = 2
+    var IMAGE_REQUEST_3 = 3
+    var IMAGE_REQUEST_4 = 4
 
     var edit = false
 
@@ -32,6 +37,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_site)
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
+
 
         info("site Activity started..")
 
@@ -56,6 +62,16 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             siteImage2.setImageBitmap(readImageFromPath(this, site.image2))
             if (site.image2 != null) {
                 chooseImage2.setText(R.string.change_site_image2)
+            }
+
+            siteImage3.setImageBitmap(readImageFromPath(this, site.image2))
+            if (site.image3 != null) {
+                chooseImage3.setText(R.string.change_site_image3)
+            }
+
+            siteImage4.setImageBitmap(readImageFromPath(this, site.image2))
+            if (site.image4 != null) {
+                chooseImage4.setText(R.string.change_site_image4)
             }
 
             btnAdd.setText(R.string.save_site)
@@ -89,6 +105,14 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, IMAGE_REQUEST_2)
         }
 
+        chooseImage3.setOnClickListener {
+            showImagePicker(this, IMAGE_REQUEST_3)
+        }
+
+        chooseImage4.setOnClickListener {
+            showImagePicker(this, IMAGE_REQUEST_4)
+        }
+
         //date
         var cal = Calendar.getInstance()
 
@@ -100,8 +124,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
                 val myFormat = "dd.MM.yyyy" // mention the format you need
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
-                val stringDate = sdf.toString()
-                siteDate.setText(stringDate)
+                //siteDate.setText()
             }
 
                 siteDate.setOnClickListener {
@@ -158,6 +181,24 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                     siteImage2.setImageBitmap(readImage(this, resultCode, data))
                     chooseImage2.setText(R.string.change_site_image)
 
+                }
+            }
+            IMAGE_REQUEST_3 -> {
+                info("image request 3")
+                if (data != null) {
+
+                    site.image3 = data.getData().toString()
+                    siteImage3.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage3.setText(R.string.change_site_image)
+                }
+            }
+            IMAGE_REQUEST_4 -> {
+                info("image request 4")
+                if (data != null) {
+
+                    site.image4 = data.getData().toString()
+                    siteImage4.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage4.setText(R.string.change_site_image)
                 }
             }
         }

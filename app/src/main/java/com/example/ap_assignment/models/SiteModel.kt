@@ -11,6 +11,8 @@ data class SiteModel(
     var description: String = "",
     var image1: String = "",
     var image2: String = "",
+    var image3: String = "",
+    var image4: String = "",
     var date: String = ""
 ): Parcelable
 
