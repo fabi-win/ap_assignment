@@ -21,5 +21,7 @@
     <string name="no_email_found">This E-Mail was not found. Please Sign in.</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button_addLocation">Add Location</string>
 
 </resources>

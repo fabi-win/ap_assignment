@@ -54,6 +54,9 @@ class SiteJSONStore : SiteStore, AnkoLogger {
             foundSite.image3 = site.image3
             foundSite.image4 = site.image4
             foundSite.visited = site.visited
+            foundSite.lat = site.lat
+            foundSite.lng = site.lng
+            foundSite.zoom = site.zoom
         }
     }
 

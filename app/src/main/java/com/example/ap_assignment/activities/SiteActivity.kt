@@ -13,6 +13,7 @@ import com.example.ap_assignment.helpers.readImage
 import com.example.ap_assignment.helpers.readImageFromPath
 import com.example.ap_assignment.helpers.showImagePicker
 import com.example.ap_assignment.main.MainApp
+import com.example.ap_assignment.models.Location
 import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
@@ -29,6 +30,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     var IMAGE_REQUEST_2 = 2
     var IMAGE_REQUEST_3 = 3
     var IMAGE_REQUEST_4 = 4
+    var LOCATION_REQUEST = 5
+    //var location = Location(49.002395, 12.097573, 15f)
 
     var edit = false
 
@@ -136,6 +139,16 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                     ).show()
                 }
                 //end of date
+
+        btnLocation.setOnClickListener{
+            val location = Location(49.002395, 12.097573, 15f)
+            if (site.zoom != 0f) {
+                location.lat =  site.lat
+                location.lng = site.lng
+                location.zoom = site.zoom
+            }
+            startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
+        }
     }
 
 
@@ -168,10 +181,10 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             IMAGE_REQUEST_1 -> {
                 info("image request 1")
                 if (data != null) {
-                        site.image1 = data.getData().toString()
-                        siteImage.setImageBitmap(readImage(this, resultCode, data))
-                        chooseImage.setText(R.string.change_site_image)
-                    }
+                    site.image1 = data.getData().toString()
+                    siteImage.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage.setText(R.string.change_site_image)
+                }
             }
             IMAGE_REQUEST_2 -> {
                 info("image request 2")
@@ -201,10 +214,17 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                     chooseImage4.setText(R.string.change_site_image)
                 }
             }
+            LOCATION_REQUEST -> {
+                if (data != null) {
+                    val location = data.extras?.getParcelable<Location>("location")!!
+                    site.lat = location.lat
+                    site.lng = location.lng
+                    site.zoom = location.zoom
+                }
+            }
         }
+
+
     }
-
-
-
 
 }
