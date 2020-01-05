@@ -2,6 +2,7 @@ package com.example.ap_assignment.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.text.SimpleDateFormat
 
 @Parcelize
 data class SiteModel(
@@ -16,7 +17,8 @@ data class SiteModel(
     var date: String = "",
     var lat: Double = 0.0,
     var lng: Double = 0.0,
-    var zoom: Float = 0f
+    var zoom: Float = 0f,
+    var additional: String = ""
 ): Parcelable
 
 @Parcelize

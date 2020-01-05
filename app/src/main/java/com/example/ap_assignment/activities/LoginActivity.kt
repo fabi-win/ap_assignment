@@ -43,7 +43,7 @@ class LoginActivity: AppCompatActivity() {
 
             //if (user.email != null){
                // if (user.password != null){
-                   // app.users.create(user.copy())
+                    //app.users.create(user.copy())
                    // toast(R.string.user_created)
                 //}
           //  }

@@ -5,9 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap_assignment.R
 import com.example.ap_assignment.helpers.readImage
 import com.example.ap_assignment.helpers.readImageFromPath
@@ -17,7 +15,6 @@ import com.example.ap_assignment.models.Location
 import com.example.ap_assignment.models.SiteModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
-import kotlinx.android.synthetic.main.activity_site_list.*
 import org.jetbrains.anko.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,7 +28,6 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
     var IMAGE_REQUEST_3 = 3
     var IMAGE_REQUEST_4 = 4
     var LOCATION_REQUEST = 5
-    //var location = Location(49.002395, 12.097573, 15f)
 
     var edit = false
 
@@ -54,6 +50,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site = intent.extras?.getParcelable<SiteModel>("site_edit")!!
             siteTitle.setText(site.title)
             siteDescription.setText(site.description)
+            siteAdditional.setText(site.additional)
 
             siteVisited.setChecked(site.visited)
 
@@ -84,6 +81,8 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site.title = siteTitle.text.toString()
             site.description = siteDescription.text.toString()
             site.visited = siteVisited.isChecked
+            site.date = siteDate.text.toString()
+            site.additional = siteAdditional.text.toString()
 
             if (site.title.isEmpty()) {
                 toast(R.string.enter_site_title)
@@ -127,7 +126,6 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
                 val myFormat = "dd.MM.yyyy" // mention the format you need
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
-                //siteDate.setText()
             }
 
                 siteDate.setOnClickListener {
