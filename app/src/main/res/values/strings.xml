@@ -19,6 +19,7 @@
     <string name="enter_password">Enter a password</string>
     <string name="user_created">User created. Please log in!</string>
     <string name="no_email_found">This E-Mail was not found. Please Sign in.</string>
+    <string name="wrong_password">The Password to the E-Mail is not correct. Please try again.</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
     <string name="title_activity_maps">Map</string>

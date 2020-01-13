@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -40,95 +42,104 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/siteTitle"
+            <EditText
+                android:id="@+id/siteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_margin="8dp"
+                android:autofillHints=""
+                android:hint="@string/hint_SiteTitle"
+                android:inputType="text"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/siteDescription"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_margin="8dp"
+                android:autofillHints=""
+                android:hint="@string/hint_SiteDescription"
+                android:inputType="text"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_margin="8dp"
-                    android:autofillHints=""
-                    android:hint="@string/hint_SiteTitle"
-                    android:inputType="text"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/siteDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="61dp"
-                    android:layout_margin="8dp"
-                    android:autofillHints=""
-                    android:hint="@string/hint_SiteDescription"
-                    android:inputType="text"
-                    android:maxLength="50"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    <Button
+                        android:id="@+id/chooseImage"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="choose image 1" />
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/siteImage"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/chooseImage"
+                        android:layout_alignParentRight="true"
+                        app:srcCompat="@mipmap/ic_launcher" />
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/chooseImage2"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/chooseImage"
+                        android:text="choose image 2" />
+
+                    <ImageView
+                        android:id="@+id/siteImage2"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/chooseImage2"
+                        android:layout_toEndOf="@id/siteImage"
+                        app:srcCompat="@mipmap/ic_launcher" />
+
+                    <Button
+                        android:id="@+id/chooseImage3"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/chooseImage2"
+                        android:text="choose image 3" />
+
+                    <ImageView
+                        android:id="@+id/siteImage3"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/chooseImage3"
+                        android:layout_toEndOf="@id/siteImage2"
+                        app:srcCompat="@mipmap/ic_launcher" />
+
+                    <Button
+                        android:id="@+id/chooseImage4"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/chooseImage3"
+                        android:text="choose image 4" />
+
+                    <ImageView
+                        android:id="@+id/siteImage4"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/chooseImage4"
+                        android:layout_toEndOf="@id/siteImage3"
+                        app:srcCompat="@mipmap/ic_launcher" />
 
 
-                        <Button
-                            android:id="@+id/chooseImage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="choose image 1"/>
-
-                        <ImageView
-                            android:id="@+id/siteImage"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_below="@id/chooseImage1"
-                            android:layout_alignParentRight="true"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <Button
-                            android:id="@+id/chooseImage2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="choose image 2"/>
-
-                        <ImageView
-                            android:id="@+id/siteImage2"
-                            android:layout_height="100dp"
-                            android:layout_width="100dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <Button
-                            android:id="@+id/chooseImage3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="choose image 3"/>
-
-                        <ImageView
-                            android:id="@+id/siteImage3"
-                            android:layout_height="100dp"
-                            android:layout_width="100dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <Button
-                            android:id="@+id/chooseImage4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="choose image 4"/>
-
-                        <ImageView
-                            android:id="@+id/siteImage4"
-                            android:layout_height="100dp"
-                            android:layout_width="100dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <!-- <Button
+                    <!-- <Button
                             android:id="@+id/chooseImage2"
                             android:layout_width="150dp"
                             android:layout_height="60dp"
@@ -168,63 +179,62 @@
                             app:layout_constraintTop_toBottomOf="@+id/siteImage"
                             app:srcCompat="@mipmap/ic_launcher" /> -->
 
-                    </LinearLayout>
+                </RelativeLayout>
 
-                </HorizontalScrollView>
+            </HorizontalScrollView>
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addSite"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/colorAccent"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_addSite"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/siteVisited"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Visited" />
+            <CheckBox
+                android:id="@+id/siteVisited"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visited" />
 
-                <EditText
-                    android:id="@+id/siteDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Date Visited:"/>
+            <EditText
+                android:id="@+id/siteDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Date Visited:" />
 
-                <Button
-                    android:id="@+id/btnLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addLocation"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+            <Button
+                android:id="@+id/btnLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/colorAccent"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_addLocation"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
 
 
-
-                <EditText
-                    android:id="@+id/siteAdditional"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:background="@color/cardview_shadow_start_color"
-                    android:hint="Additional Notes..."/>
-
+            <EditText
+                android:id="@+id/siteAdditional"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/cardview_shadow_start_color"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Additional Notes..."
+                android:inputType="textMultiLine" />
 
             </LinearLayout>
+
         </ScrollView>
 
     </RelativeLayout>

@@ -1,7 +1,6 @@
 package com.example.ap_assignment.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ap_assignment.R
@@ -23,35 +22,43 @@ class LoginActivity: AppCompatActivity() {
         setContentView(R.layout.activity_login)
         progressBar.visibility = ProgressBar.INVISIBLE
 
+        app = application as MainApp
+
         logIn.setOnClickListener(){
 
             var users = app.users.findAll()
+            var noMail = 1
 
             for(user in users){
+                noMail = 1
                 if(user.email == email.text.toString()){
                     if(user.password == password.text.toString()){
+                        noMail = 3 //no toast is shown
                         startActivityForResult(intentFor<SiteListActivity>(), 1)
                     }
+                    if (noMail != 3) noMail = 2
                 }
-                toast(R.string.no_email_found)
             }
+            if(noMail == 1) toast(R.string.no_email_found)
+            if(noMail == 2)toast(R.string.wrong_password)
+
         }
 
         signUp.setOnClickListener(){
             user.email = email.text.toString()
             user.password = password.text.toString()
 
-            //if (user.email != null){
-               // if (user.password != null){
-                    //app.users.create(user.copy())
-                   // toast(R.string.user_created)
-                //}
-          //  }
-           // else{
+            if (user.email != null){
+                if (user.password != null){
+                    app.users.create(user.copy())
+                    toast(R.string.user_created)
+                }
+            }
+            else{
                 toast(R.string.enter_email)
                 startActivityForResult(intentFor<SiteListActivity>(), 1)
 
-            //}
+            }
         }
     }
 }
