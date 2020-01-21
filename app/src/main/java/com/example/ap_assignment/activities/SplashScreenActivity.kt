@@ -2,7 +2,6 @@ package com.example.ap_assignment.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ap_assignment.R
 
@@ -15,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val background = object : Thread() {
             override fun run() {
                 try{
-                        Thread.sleep(1000)
+                        Thread.sleep(5000)
 
                     val intent = Intent(baseContext, LoginActivity::class.java)
                     startActivity(intent)

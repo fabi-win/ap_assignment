@@ -43,7 +43,7 @@
             android:layout_width="209dp"
             android:layout_height="44dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="200dp"
             android:layout_marginEnd="36dp"
             android:ems="10"
             android:inputType="textEmailAddress"
@@ -141,11 +141,22 @@
             android:id="@+id/imageView3"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="200dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/email"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="190dp"
+            android:layout_height="154dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/picture_login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
