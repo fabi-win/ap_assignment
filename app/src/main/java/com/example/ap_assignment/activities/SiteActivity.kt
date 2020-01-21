@@ -13,15 +13,18 @@ import com.example.ap_assignment.helpers.showImagePicker
 import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.Location
 import com.example.ap_assignment.models.SiteModel
+import com.example.ap_assignment.models.user.UserModel
 import kotlinx.android.synthetic.main.activity_site.*
 import kotlinx.android.synthetic.main.activity_site.siteTitle
 import org.jetbrains.anko.*
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SiteActivity : AppCompatActivity(), AnkoLogger {
 
     var site = SiteModel()
+    var user = UserModel()
     lateinit var app:MainApp
     var IMAGE_REQUEST_1 = 1
     var IMAGE_REQUEST_2 = 2
@@ -42,7 +45,13 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
 
-
+        try
+        {
+            user = intent.getParcelableExtra("user") as UserModel
+        }
+        catch (e: Exception)
+        {
+        }
 
         if (intent.hasExtra("site_edit")) {
             edit = true
@@ -83,6 +92,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site.visited = siteVisited.isChecked
             site.date = siteDate.text.toString()
             site.additional = siteAdditional.text.toString()
+            site.userID = user.id
 
             if (site.title.isEmpty()) {
                 toast(R.string.enter_site_title)

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 @Parcelize
 data class SiteModel(
     var id: Long = 0,
+    var userID: Long = 0,
     var title: String = "",
     var visited: Boolean = false,
     var description: String = "",

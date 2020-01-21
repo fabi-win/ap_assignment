@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ap_assignment.R
 import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.SiteModel
+import com.example.ap_assignment.models.user.UserModel
 
 
 import kotlinx.android.synthetic.main.activity_site_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
+import java.lang.Exception
 
 class SiteListActivity: AppCompatActivity(), SiteListener {
 
+    var user = UserModel()
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +28,14 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
 
         toolbar.title = title
         setSupportActionBar(toolbar)
+
+        try
+        {
+            user = intent.getParcelableExtra("user") as UserModel
+        }
+        catch (e: Exception)
+        {
+        }
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
@@ -38,7 +49,7 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_add -> {
-                startActivityForResult<SiteActivity>(0)
+                startActivityForResult(intentFor<SiteActivity>().putExtra("user", user), 1)
             }
             R.id.item_logout -> {
                 startActivityForResult<LoginActivity>(0)
@@ -65,9 +76,17 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
     }
 
     fun showSites (sites: List<SiteModel>) {
-        recyclerView.adapter = SiteAdapter(sites, this)
+        var showedSites = arrayOf<SiteModel>()
+        for(site in sites) {
+            if (site.userID == this.user.id){
+                showedSites += site
+            }
+        }
+        recyclerView.adapter = SiteAdapter(showedSites.toList(), this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
 
 }
+
+

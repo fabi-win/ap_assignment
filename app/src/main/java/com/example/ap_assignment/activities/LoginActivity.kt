@@ -34,7 +34,7 @@ class LoginActivity: AppCompatActivity() {
                 if(user.email == email.text.toString()){
                     if(user.password == password.text.toString()){
                         noMail = 3 //no toast is shown
-                        startActivityForResult(intentFor<SiteListActivity>(), 1)
+                        startActivityForResult(intentFor<SiteListActivity>().putExtra("user", user), 1)
                     }
                     if (noMail != 3) noMail = 2
                 }
