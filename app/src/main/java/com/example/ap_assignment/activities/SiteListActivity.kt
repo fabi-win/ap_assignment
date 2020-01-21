@@ -43,6 +43,9 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
             R.id.item_logout -> {
                 startActivityForResult<LoginActivity>(0)
             }
+            R.id.item_settings -> {
+                startActivityForResult<SettingActivity>(0)
+            }
         }
             return super.onOptionsItemSelected(item)
         }

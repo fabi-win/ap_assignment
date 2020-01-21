@@ -47,9 +47,25 @@ class UserJSONStore : UserStore, AnkoLogger {
     override fun update(user: UserModel) {
         var foundUser: UserModel? = users.find { p -> p.id == user.id }
         if (foundUser != null) {
+            foundUser.id = user.id
             foundUser.email = user.email
             foundUser.password = user.password
+            foundUser.sites = user.sites
+            foundUser.numberOfSites = user.calcNumbOfSites()
+            foundUser.numberVisited = user.calcNumbVisited()
         }
+        serialize()
+    }
+
+    override fun findNumbVisited(user: UserModel): Int
+    {
+        user.sites.forEach{ if (it.visited) user.numberOfSites++ }
+        return user.numberVisited
+    }
+
+    override fun findNumbSites(user: UserModel): Int
+    {
+        return user.sites.size
     }
 
     private fun serialize() {
