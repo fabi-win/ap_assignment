@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_login.toolbar
 import kotlinx.android.synthetic.main.activity_site_list.*
 import kotlinx.android.synthetic.main.actvitiy_setting.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.toast
 import java.lang.Exception
 
 
@@ -57,6 +59,12 @@ class SettingActivity: AppCompatActivity() {
 
         cancel.setOnClickListener(){
             startActivity(intentFor<SiteListActivity>().putExtra("user", user))
+        }
+
+        btnDeleteUser.setOnClickListener(){
+            app.users.delete(user)
+            toast("User deleted")
+            startActivityForResult<LoginActivity>(0)
         }
     }
 }

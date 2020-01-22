@@ -68,6 +68,10 @@ class UserJSONStore : UserStore, AnkoLogger {
         return user.sites.size
     }
 
+    override fun delete(user: UserModel){
+        users.remove(user)
+    }
+
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(users, listType)
         write(context, JSON_FILE, jsonString)
