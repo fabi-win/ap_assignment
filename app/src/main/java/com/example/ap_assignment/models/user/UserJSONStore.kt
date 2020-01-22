@@ -37,10 +37,11 @@ class UserJSONStore : UserStore, AnkoLogger {
         return users
     }
 
-    override fun create(user: UserModel) {
+    override fun create(user: UserModel): Long {
         user.id = generateRandomId()
         users.add(user)
         serialize()
+        return user.id
     }
 
 

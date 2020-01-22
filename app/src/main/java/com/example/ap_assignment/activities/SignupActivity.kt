@@ -5,6 +5,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ap_assignment.R
 import com.example.ap_assignment.main.MainApp
+import com.example.ap_assignment.models.SiteModel
 import com.example.ap_assignment.models.user.UserModel
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.progressBar
@@ -46,8 +47,10 @@ class SignupActivity: AppCompatActivity() {
                                 var user = UserModel()
                                 user.email = emailsu.text.toString()
                                 user.password = passwordsu.text.toString()
-                                app.users.create(user.copy())
+                                var id = app.users.create(user.copy())
+                                user.id = id
                                 toast("User created")
+                                createInitialSites(user)
                                 startActivityForResult<LoginActivity>(0)
                             }
                         }
@@ -55,4 +58,27 @@ class SignupActivity: AppCompatActivity() {
 
             }
         }
+
+    private fun createInitialSites(user: UserModel){
+        var site1 = SiteModel()
+        site1.userID = user.id
+        site1.title = "Dom"
+        site1.description= "Biggest church in Regensburg"
+        site1.image1 = "content://com.android.providers.downloads.documents/document/111"
+        app.sites.create(site1)
+
+        var site2 = SiteModel()
+        site2.userID = user.id
+        site2.title = "Irish Harp"
+        site2.description = "Bar in Regensburg"
+        site2.image1="content://com.android.providers.downloads.documents/document/113"
+        app.sites.create(site2)
+
+        var site3 = SiteModel()
+        site3.userID = user.id
+        site3.title = "Wurstkuchl"
+        site3.description = "Oldest Restaurant in Germany"
+        site3.image1="content://com.android.providers.downloads.documents/document/112"
+        app.sites.create(site3)
     }
+}

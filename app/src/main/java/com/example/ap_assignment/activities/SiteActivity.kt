@@ -85,6 +85,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             }
 
             btnAdd.setText(R.string.save_site)
+            btnLocation.setText("Edit Location")
         }
 
         btnAdd.setOnClickListener() {
