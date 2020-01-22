@@ -60,6 +60,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             siteTitle.setText(site.title)
             siteDescription.setText(site.description)
             siteAdditional.setText(site.additional)
+            siteDate.setText(site.date)
 
             siteVisited.setChecked(site.visited)
 
@@ -102,10 +103,11 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
                 } else {
                     app.sites.create(site.copy())
                 }
+                info("add Button Pressed: $siteTitle")
+                setResult(AppCompatActivity.RESULT_OK)
+                finish()
             }
-            info("add Button Pressed: $siteTitle")
-            setResult(AppCompatActivity.RESULT_OK)
-            finish()
+
         }
 
 
@@ -126,27 +128,27 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
         }
 
         //date
-        var cal = Calendar.getInstance()
 
-        val dateSetListener =
-            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        siteDate.setOnClickListener() {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-                val myFormat = "dd.MM.yyyy" // mention the format you need
-                val sdf = SimpleDateFormat(myFormat, Locale.US)
-            }
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { DatePicker, mYear, mMonth, mDay ->
+                    siteDate.setText("" + mDay + "/" + (mMonth+1) + "/" + mYear)
+                },
+                year,
+                month,
+                day
+            )
 
-                siteDate.setOnClickListener {
-                    DatePickerDialog(
-                        this@SiteActivity, dateSetListener,
-                        cal.get(Calendar.YEAR),
-                        cal.get(Calendar.MONTH),
-                        cal.get(Calendar.DAY_OF_MONTH)
-                    ).show()
-                }
-                //end of date
+            dpd.show()
+            site.date = siteDate.text.toString()
+        }
+        //end of date
 
         btnLocation.setOnClickListener{
             val location = Location(49.002395, 12.097573, 15f)

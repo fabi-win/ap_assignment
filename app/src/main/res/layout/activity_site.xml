@@ -207,7 +207,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Date Visited:" />
+                android:hint="Date Visited:"
+                android:focusable="false"/>
 
             <Button
                 android:id="@+id/btnLocation"
