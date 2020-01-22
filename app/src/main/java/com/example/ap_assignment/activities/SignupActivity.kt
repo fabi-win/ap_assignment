@@ -27,21 +27,32 @@ class SignupActivity: AppCompatActivity() {
 
         signUp.setOnClickListener() {
 
-            if (passwordsu.text.toString() != passwordsu2.text.toString()) {
-                toast("Your typed password doesn't match!")
-            } else {
-                if (passwordsu.text.toString() == "") {
-                    toast("Your password can't be blank")
-                } else {
-                    var user = UserModel()
-                    user.email = emailsu.text.toString()
-                    user.password = passwordsu.text.toString()
-                    app.users.create(user.copy())
-                    toast("User created")
-                    startActivityForResult<LoginActivity>(0)
-                }
+            var users = app.users.findAll()
+            var userAsigned = false
+
+                    if (passwordsu.text.toString() != passwordsu2.text.toString()) {
+                        toast("Your typed password doesn't match!")
+                    } else {
+                        if (passwordsu.text.toString() == "") {
+                            toast("Your password can't be blank")
+                        } else {
+                            for(user in users){
+                                if(user.email == emailsu.text.toString()) {
+                                    toast("Email already asigned")
+                                    userAsigned = true
+                                }
+                            }
+                            if(userAsigned == false) {
+                                var user = UserModel()
+                                user.email = emailsu.text.toString()
+                                user.password = passwordsu.text.toString()
+                                app.users.create(user.copy())
+                                toast("User created")
+                                startActivityForResult<LoginActivity>(0)
+                            }
+                        }
+                    }
 
             }
         }
     }
-}
