@@ -7,6 +7,8 @@ import com.example.ap_assignment.R
 import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.user.UserModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.toolbar
+import kotlinx.android.synthetic.main.activity_site_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
@@ -25,6 +27,9 @@ class LoginActivity: AppCompatActivity() {
         progressBar.visibility = ProgressBar.INVISIBLE
 
         app = application as MainApp
+
+        toolbar.title = "Welcome to:"
+        setSupportActionBar(toolbar)
 
         logIn.setOnClickListener(){
 

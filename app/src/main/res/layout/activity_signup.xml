@@ -37,12 +37,12 @@
             android:layout_width="209dp"
             android:layout_height="44dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="156dp"
             android:layout_marginEnd="36dp"
             android:ems="10"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.88"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +70,7 @@
             app:layout_constraintTop_toBottomOf="@+id/emailsu"
             app:layout_constraintVertical_bias="0.026" />
 
+
         <EditText
             android:id="@+id/passwordsu2"
             android:layout_width="239dp"
@@ -82,15 +83,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/emailsu"
             app:layout_constraintTop_toBottomOf="@+id/emailsu"
-            app:layout_constraintVertical_bias="0.169" />
-
+            app:layout_constraintVertical_bias="0.16" />
 
         <Button
             android:id="@+id/signUp"
             android:layout_width="294dp"
             android:layout_height="48dp"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="48dp"
             android:text="Sign Up"
             app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +128,7 @@
             android:id="@+id/imageView3"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="156dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/emailsu"
             app:layout_constraintTop_toTopOf="parent"
@@ -139,8 +139,9 @@
             android:layout_width="190dp"
             android:layout_height="154dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.404"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/picture_login" />
@@ -159,6 +160,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:titleTextColor="@color/colorPrimary" />
@@ -167,7 +169,7 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="18dp"
             android:text="Password"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"

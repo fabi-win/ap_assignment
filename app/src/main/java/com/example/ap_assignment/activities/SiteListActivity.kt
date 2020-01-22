@@ -37,16 +37,44 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
         {
         }
 
+        user.numberOfSites = getSites()
+        user.numberVisited = getVisited()
+
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         loadSites()
     }
+
+    private fun getVisited(): Int {
+        var i = 0
+        var sites = arrayOf<SiteModel>()
+        sites = app.sites.findAll().toTypedArray()
+        for(site in sites){
+            if(site.userID == user.id){
+                if(site.visited) i++
+            }
+        }
+        return i
+    }
+
+    private fun getSites(): Int {
+        var i = 0
+        var sites = arrayOf<SiteModel>()
+        sites = app.sites.findAll().toTypedArray()
+        for(site in sites){
+            if(site.userID == user.id) i++
+        }
+        return i
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        user.numberOfSites = getSites()
+        user.numberVisited = getVisited()
         when (item?.itemId) {
             R.id.item_add -> {
                 startActivityForResult(intentFor<SiteActivity>().putExtra("user", user), 1)
@@ -55,7 +83,7 @@ class SiteListActivity: AppCompatActivity(), SiteListener {
                 startActivityForResult<LoginActivity>(0)
             }
             R.id.item_settings -> {
-                startActivityForResult<SettingActivity>(0)
+                startActivityForResult(intentFor<SettingActivity>().putExtra("user", user), 1)
             }
         }
             return super.onOptionsItemSelected(item)
