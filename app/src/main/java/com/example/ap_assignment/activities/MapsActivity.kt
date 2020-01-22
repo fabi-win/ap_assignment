@@ -33,7 +33,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Placemark")
+            .title("Site")
             .snippet("GPS : " + loc.toString())
             .draggable(true)
             .position(loc)

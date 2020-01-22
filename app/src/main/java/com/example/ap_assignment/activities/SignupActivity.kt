@@ -65,6 +65,9 @@ class SignupActivity: AppCompatActivity() {
         site1.title = "Dom"
         site1.description= "Biggest church in Regensburg"
         site1.image1 = "content://com.android.providers.downloads.documents/document/111"
+        site1.lat = 49.019620
+        site1.lng = 12.098560
+        site1.zoom = 15f
         app.sites.create(site1)
 
         var site2 = SiteModel()
@@ -72,6 +75,9 @@ class SignupActivity: AppCompatActivity() {
         site2.title = "Irish Harp"
         site2.description = "Bar in Regensburg"
         site2.image1="content://com.android.providers.downloads.documents/document/113"
+        site2.lat = 49.021009
+        site2.lng = 12.097599
+        site2.zoom = 15f
         app.sites.create(site2)
 
         var site3 = SiteModel()
@@ -79,6 +85,9 @@ class SignupActivity: AppCompatActivity() {
         site3.title = "Wurstkuchl"
         site3.description = "Oldest Restaurant in Germany"
         site3.image1="content://com.android.providers.downloads.documents/document/112"
+        site3.lat = 49.021122
+        site3.lng = 12.097885
+        site3.zoom = 15f
         app.sites.create(site3)
     }
 }
