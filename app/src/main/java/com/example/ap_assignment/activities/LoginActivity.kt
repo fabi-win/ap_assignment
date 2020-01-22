@@ -8,6 +8,8 @@ import com.example.ap_assignment.main.MainApp
 import com.example.ap_assignment.models.user.UserModel
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 
 class LoginActivity: AppCompatActivity() {
@@ -39,26 +41,13 @@ class LoginActivity: AppCompatActivity() {
                     if (noMail != 3) noMail = 2
                 }
             }
-            if(noMail == 1) toast(R.string.no_email_found)
-            if(noMail == 2)toast(R.string.wrong_password)
+            //if(noMail == 1) toast(R.string.no_email_found)
+            //if(noMail == 2)toast(R.string.wrong_password)
 
         }
 
-        signUp.setOnClickListener(){
-            user.email = email.text.toString()
-            user.password = password.text.toString()
-
-            if (user.email != null){
-                if (user.password != null){
-                    app.users.create(user.copy())
-                    toast(R.string.user_created)
-                }
-            }
-            else{
-                toast(R.string.enter_email)
-                startActivityForResult(intentFor<SiteListActivity>(), 1)
-
-            }
+        signUp.setOnClickListener() {
+            startActivityForResult<SignupActivity>(0)
         }
     }
 }

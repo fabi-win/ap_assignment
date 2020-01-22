@@ -31,6 +31,9 @@
             android:name=".activities.LoginActivity"
             android:theme="@style/LoginTheme"></activity>
         <activity
+            android:name=".activities.SignupActivity"
+            android:theme="@style/LoginTheme"></activity>
+        <activity
             android:name=".activities.SplashScreenActivity"
             android:noHistory="true"
             android:theme="@style/SplashTheme">
