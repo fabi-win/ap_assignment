@@ -48,7 +48,7 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         var foundSite: SiteModel? = sites.find { p -> p.id == site.id }
         if (foundSite != null) {
             foundSite.title = site.title
-            foundSite.userID = site.userID
+            //foundSite.userID = site.userID
             foundSite.description = site.description
             foundSite.image1 = site.image1
             foundSite.image2 = site.image2
@@ -60,6 +60,7 @@ class SiteJSONStore : SiteStore, AnkoLogger {
             foundSite.zoom = site.zoom
             foundSite.additional = site.additional
         }
+        serialize()
     }
 
     override fun delete(site: SiteModel) {
