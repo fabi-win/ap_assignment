@@ -61,6 +61,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             siteDescription.setText(site.description)
             siteAdditional.setText(site.additional)
             siteDate.setText(site.date)
+            ratingBar.rating = site.rating
 
             siteVisited.setChecked(site.visited)
 
@@ -95,6 +96,7 @@ class SiteActivity : AppCompatActivity(), AnkoLogger {
             site.date = siteDate.text.toString()
             site.additional = siteAdditional.text.toString()
             site.userID = user.id
+            site.rating = ratingBar.rating
 
             if (site.title.isEmpty()) {
                 toast(R.string.enter_site_title)

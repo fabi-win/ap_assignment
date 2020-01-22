@@ -60,6 +60,7 @@ class SiteJSONStore : SiteStore, AnkoLogger {
             foundSite.zoom = site.zoom
             foundSite.additional = site.additional
             foundSite.date = site.date
+            foundSite.rating = site.rating
         }
         serialize()
     }

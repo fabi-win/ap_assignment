@@ -19,7 +19,8 @@ data class SiteModel(
     var lat: Double = 0.0,
     var lng: Double = 0.0,
     var zoom: Float = 0f,
-    var additional: String = ""
+    var additional: String = "",
+    var rating: Float = 0f
 ): Parcelable
 
 @Parcelize

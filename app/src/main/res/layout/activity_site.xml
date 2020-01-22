@@ -183,56 +183,96 @@
 
             </HorizontalScrollView>
 
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:stateListAnimator="@null"
-                android:text="@string/button_addSite"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="362dp">
 
-            <CheckBox
-                android:id="@+id/siteVisited"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visited" />
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@android:color/holo_green_dark"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/button_addSite"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/siteAdditional"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-            <EditText
-                android:id="@+id/siteDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Date Visited:"
-                android:focusable="false"/>
-
-            <Button
-                android:id="@+id/btnLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:stateListAnimator="@null"
-                android:text="@string/button_addLocation"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
+                    <CheckBox
+                        android:id="@+id/siteVisited"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="Visited"
+                        app:layout_constraintBottom_toTopOf="@+id/siteDate"
+                        app:layout_constraintStart_toStartOf="parent" />
 
 
-            <EditText
-                android:id="@+id/siteAdditional"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/cardview_shadow_start_color"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="Additional Notes..."
-                android:inputType="textMultiLine" />
+                    <EditText
+                        android:id="@+id/siteDate"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint="Date Visited:"
+                        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+                        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="47dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_toEndOf="@id/siteDate"
+                        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <Button
+                        android:id="@+id/btnLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/colorAccent"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/button_addLocation"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/siteAdditional"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/cardview_shadow_start_color"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Additional Notes..."
+                        android:inputType="textMultiLine"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
